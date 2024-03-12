@@ -109,6 +109,10 @@ app.patch('/movies/:id', (req, res) => {
   return res.json(updatedMovie)
 })
 
+app.use((req, res) => {
+  res.status(404).send('<h1>404 Not Found</h1>')
+})
+
 const PORT = process.env.PORT ?? 3001
 app.listen(PORT, () => {
   console.log(`Server listening on port http://localhost:${PORT}`)
